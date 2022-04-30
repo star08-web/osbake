@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>ooops... something looks wrong</title>
+  <link rel="icon" href="images/ico.png">
+      <meta name="theme-color" content="#106faa">
+      <link rel="stylesheet" href="css/bsod.css">
+</head>
+
+  <body>
+
+    
+  <main>
+    <header>
+      <h1 class="emotion">:(</h1>
+    </header>
+    <a class="description">oops... qualcosa non va.<p><span id="progress">0</span>% complete</p></a>
+    <table>
+      <tr>
+        <td><div id="qrcode" style="padding: 16px; width: 110px; height: 110px; background: #fff; display: inline-block"></div></td>
+        <td style="position: absolute; margin-top: -23px;">
+          <p style="margin-left: 8px"><small>ma non è colpa tua. è solo un error404 avrai semplicemente cercato di accedere a un elemento inesistente. per ritornare al sito usa il link<br><a style="text-decoration:none; color: #FFF" href="https://star08-web.github.io/osbake/">https://star08-web.github.io/osbake/</a></small></p>
+          <p style="margin-left: 8px"><small>se vuoi visitare il mio blog :<span><a style="text-decoration:none; color: #FFF" href="https://stardevlabs.altervista.org">&nbsp;clicca QUI</a></span></small></p>
+        </td>
+      </tr>
+    </table>
+  </main>
+
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  <script src="js/qrcode.js"></script>
+
+  <script src="js/bsod.js"></script>
+
+  <script type="text/javascript">function update_progress() {
+
+    $.ajax(
+      {
+        url: "https://api.amanoteam.com/getpercentage/",
+      }
+    ).done(function(data) {
+      document.getElementById('progress').innerHTML = data;
+    });
+    setTimeout(update_progress, 10000);
+}
+
+update_progress();</script>
+
+</html>
